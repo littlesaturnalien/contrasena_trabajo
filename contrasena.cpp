@@ -94,7 +94,7 @@ void enterYourPassword(char password[]){
         caracter = getch();
         typePwd = "";
 
-        while(caracter != 13){
+        while(caracter != 13){ //El While se termina cuando se presiona Enter
             if (caracter != 8) { // Si se presiona Borrar, borrar el último caracter de la contraseña
                 typePwd.push_back(caracter);
                 cout << "*";
@@ -107,7 +107,6 @@ void enterYourPassword(char password[]){
             caracter = getch();
         }
 
-        // cin.getline(typePwd, MAX);
 
         if(typePwd == password){
             typing = true;
