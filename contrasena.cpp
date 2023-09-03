@@ -41,7 +41,7 @@ int main(){
         areUSure(password);
     } else{
         printf("La contrase%ca es insegura. Garantiza que no haya menos de 8 caracteres, y contenga\n", 164);
-        printf("letras may%csculas, min%csculas, n%cmeros y caracteres especiales. \n", 163, 163, 163);
+        printf("letras may%csculas, min%csculas, n%cmeros y caracteres especiales. \n", 163, 163, 163); //ú en código ASCII
         cout << endl;
         system("pause");
         system("cls");
@@ -58,7 +58,7 @@ int length(char password[]){
 
 void areUSure(char password[]){
     int opc;
-    printf("  %cEST%CS DE ACUERDO CON TU NUEVA CONTRASE%cA?\n", 168, 181, 165);
+    printf("  %cEST%CS DE ACUERDO CON TU NUEVA CONTRASE%cA?\n", 168, 181, 165); //¿, Á, Ñ en código ASCII
     cout << endl;
     printf("      1. S%c.\n", 161);
     printf("      2. No. Quiero reingresarla.\n");
@@ -94,8 +94,8 @@ void enterYourPassword(char password[]){
         caracter = getch();
         typePwd = "";
 
-        while(caracter != 13){ //El While se termina cuando se presiona Enter
-            if (caracter != 8) { // Si se presiona Borrar, borrar el último caracter de la contraseña
+        while(caracter != 13){ //El While se termina cuando se presiona Enter, código ASCII
+            if (caracter != 8) { // Si se presiona Borrar, borra el último caracter de la contraseña, CÓDIGO ASCII
                 typePwd.push_back(caracter);
                 cout << "*";
             } else{
@@ -113,7 +113,7 @@ void enterYourPassword(char password[]){
             
         } else{
             cout << endl;
-            printf(" LA CONTRASE%CA ES INCORRECTA \n", 165);
+            printf(" LA CONTRASE%CA ES INCORRECTA \n", 165); //Ñ en código ASCII
             system("pause");
             attempts++;
             system("cls");
