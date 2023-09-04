@@ -35,7 +35,7 @@ int main(){
             }
     } 
 
-    if (length(password) >= 8 && hasUpper && hasLower && hasDigit && hasSpecial){
+    if (length(password) >= 8 && hasUpper == true && hasLower == true && hasDigit == true && hasSpecial == true){
         printf("La contrase%ca es segura.\n", 164); //ñ en ASCII
         cout << endl;
         system("pause");
