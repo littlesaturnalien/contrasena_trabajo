@@ -17,18 +17,18 @@ int main(){
     printf("Crea tu nueva contrase%ca: \n", 164);//ñ en ASCII
     cin.getline(password, MAX);
 
-    for (char c : password) {  //Iterar para cada carácter en una cadena (password).
-        if (isupper(c)) {      //Comprueba si hay un carácter en mayúscula o no.
+    for (char c : password) {  //Iterar para cada caracter en una cadena (password).
+        if (isupper(c)) {      //Comprueba si hay un caracter en mayúscula o no.
             hasUpper = true;  
         }  
-        if (islower(c)) {      //Comprueba si hay un carácter en minúscula o no.
+        if (islower(c)) {      //Comprueba si hay un caracter en minúscula o no.
             hasLower = true;  
         }  
-        if (isdigit(c)) {      //Comprueba si el carácter dado tiene un dígito decimal o no.
+        if (isdigit(c)) {      //Comprueba si el caracter dado tiene un dígito decimal o no.
             hasDigit = true;  
         }
         if((int(c) >= 32 && int(c) <= 47) || //Código ASCII para caracteres especiales. 
-            (int(c) >= 58 && int(c) <= 64) || //int(c) es para convertir de carácter a número entero (su valor en ASCII)
+            (int(c) >= 58 && int(c) <= 64) || //int(c) es para convertir de caracter a número entero (su valor en ASCII)
             (int(c) >= 91 && int(c) <= 96) ||
             (int(c) >= 123 && int(c) <= 126)){
                 hasSpecial = true;
@@ -98,12 +98,12 @@ void enterYourPassword(char password[]){
 
         while(caracter != 13){ //El While se termina cuando se presiona Enter, código ASCII
             if (caracter != 8) { // Si se presiona Borrar, borra el último caracter de la contraseña, CÓDIGO ASCII
-                typePwd.push_back(caracter); //Agrega el carácter C al final de la cadena, aumentando su longitud en uno.
+                typePwd.push_back(caracter); //Agrega el caracter C al final de la cadena, aumentando su longitud en uno.
                 cout << "*"; //Se sustituye por asteriscos
             } else{
-                if(typePwd.length() > 0){ //Si mi contraseña tiene mínimo un carácter, se puede eliminar en pantalla
+                if(typePwd.length() > 0){ //Si mi contraseña tiene mínimo un caracter, se puede eliminar en pantalla
                     cout << "\b \b"; // Mueve el cursor un espacio hacia la izquierda
-                                    //Imprime un espacio en blanco para borrar el carácter en pantalla
+                                    //Imprime un espacio en blanco para borrar el caracter en pantalla
                                     //Por último, se regresa el cursor a su posición anterior
                     typePwd = typePwd.substr(0, typePwd.length()-1); //La función de subcadena devuelve una nueva cadena con su valor inicializado en una copia de una subcadena de este objeto.
                                                                     //Se toman los primeros caracteres de la contraseña ingresada, menos el último
