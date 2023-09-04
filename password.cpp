@@ -1,7 +1,9 @@
 #include <iostream>
 #include <string.h>
-#include <conio.h>
-#include <cstdlib>
+#include <conio.h> //Librería para usar el comando getch()
+#include <cstdlib> /*Funcionalidades generales de la biblioteca estándar de C. 
+Incluye funciones como system() para ejecutar comandos del sistema operativo*/
+#include <cctype> //Declara un conjunto de funciones para clasificar (y transformar) caracteres individuales, por ejemplo, isupper()
 #define MAX 20
 using namespace std;
 
@@ -15,18 +17,18 @@ int main(){
     printf("Crea tu nueva contrase%ca: \n", 164);//ñ en ASCII
     cin.getline(password, MAX);
 
-    for (char c : password) {  
-        if (isupper(c)) {  
+    for (char c : password) {  //Iterar para cada carácter en una cadena (password).
+        if (isupper(c)) {      //Comprueba si hay un carácter en mayúscula o no.
             hasUpper = true;  
         }  
-        if (islower(c)) {  
+        if (islower(c)) {      //Comprueba si hay un carácter en minúscula o no.
             hasLower = true;  
         }  
-        if (isdigit(c)) {  
+        if (isdigit(c)) {      //Comprueba si el carácter dado tiene un dígito decimal o no.
             hasDigit = true;  
         }
-        if((int(c) >= 32 && int(c) <= 47) || //Código ASCII para caracteres especiales
-            (int(c) >= 58 && int(c) <= 64) ||
+        if((int(c) >= 32 && int(c) <= 47) || //Código ASCII para caracteres especiales. 
+            (int(c) >= 58 && int(c) <= 64) || //int(c) es para convertir de carácter a número entero (su valor en ASCII)
             (int(c) >= 91 && int(c) <= 96) ||
             (int(c) >= 123 && int(c) <= 126)){
                 hasSpecial = true;
@@ -52,7 +54,7 @@ int main(){
 
 
 int length(char password[]){
-    int length = strlen(password);
+    int length = strlen(password); //Devuelve la longitud de la cadena C dada. 
 	return length;
 }
 
@@ -91,17 +93,20 @@ void enterYourPassword(char password[]){
         cout << endl;
         printf(" Contrase%ca: ", 164);
         char caracter;
-        caracter = getch();
-        typePwd = "";
+        caracter = getch(); //Lee un carácter pero no mostrará el valor en la pantalla.
+        typePwd = ""; //Resetear la variable para que cada vez que se realice un nuevo intento, almacene valores nuevos.
 
         while(caracter != 13){ //El While se termina cuando se presiona Enter, código ASCII
             if (caracter != 8) { // Si se presiona Borrar, borra el último caracter de la contraseña, CÓDIGO ASCII
-                typePwd.push_back(caracter);
-                cout << "*";
+                typePwd.push_back(caracter); //Agrega el carácter C al final de la cadena, aumentando su longitud en uno.
+                cout << "*"; //Se sustituye por asteriscos
             } else{
-                if(typePwd.length() > 0){
-                    cout << "\b \b";
-                    typePwd = typePwd.substr(0, typePwd.length()-1);
+                if(typePwd.length() > 0){ //Si mi contraseña tiene mínimo un carácter, se puede eliminar en pantalla
+                    cout << "\b \b"; // Mueve el cursor un espacio hacia la izquierda
+                                    //Imprime un espacio en blanco para borrar el carácter en pantalla
+                                    //Por último, se regresa el cursor a su posición anterior
+                    typePwd = typePwd.substr(0, typePwd.length()-1); //La función de subcadena devuelve una nueva cadena con su valor inicializado en una copia de una subcadena de este objeto.
+                                                                    //Se toman los primeros caracteres de la contraseña ingresada, menos el último
                 }
             }
             caracter = getch();
